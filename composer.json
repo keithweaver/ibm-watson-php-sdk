@@ -15,10 +15,24 @@
         }
     ],
     "require": {
-        "php" : ">=5.5.0"
+        "php" : ">=5.5.0",
+        "ext-curl": "*",
+        "php-curl-class/php-curl-class": "^4.11"
     },
     "require-dev": {
-        "phpunit/phpunit" : "4.*"
+        "phpunit/phpunit" : "4.*",
+        "ext-curl": "*",
+        "php-curl-class/php-curl-class": "^4.11"
+    },
+    "autoload": {
+        "psr-4": {
+            "Kweaver\\Watson\\": "src"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Kweaver\\Watson\\Test\\": "tests"
+        }
     },
     "extra": {
         "branch-alias": {
