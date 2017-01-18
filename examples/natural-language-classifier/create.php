@@ -40,6 +40,6 @@
 	}
 	*/
 
-	// echo $localFilePathForTrainingData . '<br/>';
+	
 	
 ?>
