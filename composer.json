@@ -1,6 +1,6 @@
 {
     "name": "kweaver00/watson_php",
-    "description": "A PHP SDK for using IBM Watsons",
+    "description": "A PHP SDK for using IBM Watson",
     "keywords": [
         "ibm", "ibm watson", "php"
     ],
