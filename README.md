@@ -6,8 +6,21 @@
 composer require kweaver00/watson_php
 ```
 
-## Natural Language Example
+## Natural Language Classifier
 
+### Creating A New Object
+
+```
+$naturalLangObj = new \Kweaver\Watson\NaturalLanguageClassifier();
+```
+
+### API Methods
+
+**[Create classifier](https://www.ibm.com/watson/developercloud/natural-language-classifier/api/v1/#create_classifier)** - Sends data to create and train a classifier and returns information about the new classifier.
+
+
+
+### Example
 ```
 require_once "/vendor/autoload.php";
 
