@@ -1,10 +1,14 @@
 # unofficial-ibm-watson-php-sdk
 
+
 ## Installing Using Composer
 
 ```
 composer require kweaver00/watson_php
 ```
+
+
+
 
 ## Natural Language Classifier
 
@@ -14,10 +18,18 @@ composer require kweaver00/watson_php
 $naturalLangObj = new \Kweaver\Watson\NaturalLanguageClassifier();
 ```
 
+
 ### API Methods
 
 **[Create classifier](https://www.ibm.com/watson/developercloud/natural-language-classifier/api/v1/#create_classifier)** - Sends data to create and train a classifier and returns information about the new classifier.
 
+**[List classifiers](https://www.ibm.com/watson/developercloud/natural-language-classifier/api/v1/#get_classifiers)** - Retrieves the list of classifiers for the service instance. Returns an empty array if no classifiers are available.
+
+**[Get information about a classifier](https://www.ibm.com/watson/developercloud/natural-language-classifier/api/v1/#get_status)** - Returns status and other information about a classifier
+
+**[Delete classifier](https://www.ibm.com/watson/developercloud/natural-language-classifier/api/v1/#delete_classifier)** - Deletes a classifier.
+
+**[Classify](https://www.ibm.com/watson/developercloud/natural-language-classifier/api/v1/#classify)** - Returns label information for the input. The status must be "Available" before you can classify calls. Use the Get information about a classifier method to retrieve the status.
 
 
 ### Example
@@ -33,6 +45,8 @@ $localFilePathForTrainingData = realpath("./weather_data_train.csv");
 //Creating a new classifier
 $response = $naturalLangObj->create($localFilePathForTrainingData,$localFilePathForTrainingMetaDataJSON);
 ```
+
+
 
 ## Document Conversion Example
 
