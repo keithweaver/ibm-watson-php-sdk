@@ -1,4 +1,4 @@
-# unofficial-ibm-watson-php-sdk
+# ibm-watson-php-sdk
 
 
 ## Installing Using Composer
@@ -13,6 +13,7 @@ composer require kweaver00/watson_php
 [Natural Language Classifier](https://github.com/kweaver00/unofficial-ibm-watson-php-sdk#natural-language-classifier)
 
 [Document Conversion](https://github.com/kweaver00/unofficial-ibm-watson-php-sdk#document-conversion)
+
 
 
 
