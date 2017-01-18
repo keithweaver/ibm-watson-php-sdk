@@ -1,11 +1,11 @@
 <?php
 	require_once "../../vendor/autoload.php";
 	
-	$retrieveAndRankObj = new \Kweaver\Watson\DocumentConversion();
+	$documentConversionObj = new \Kweaver\Watson\DocumentConversion();
 		
 	
 	//Set your IBM Bluemix Credentials for the document conversion service
-	$retrieveAndRankObj->setServiceCredentials("YOUR_USERNAME_FOR_THE_DOC_CONVERSION_SERVICE","YOUR_PASSWORD");
+	$documentConversionObj->setServiceCredentials("YOUR_USERNAME_FOR_THE_DOC_CONVERSION_SERVICE","YOUR_PASSWORD");
 
 	
 	/*
@@ -33,7 +33,7 @@
 		
 	$version = date('Y-m-d');//Version must be following YYYY-MM-DD format.
 
-	$result = $retrieveAndRankObj->convert($configFilePath, $uploadedFilePath, $version);
+	$result = $documentConversionObj->convert($configFilePath, $uploadedFilePath, $version);
 
 	echo var_dump($result);
 
