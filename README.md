@@ -7,6 +7,11 @@
 composer require kweaver00/watson_php
 ```
 
+or
+```
+composer require kweaver00/watson_php dev-master
+```
+
 
 ## Supported Services
 
