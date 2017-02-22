@@ -166,9 +166,10 @@ class RetrieveAndRank
     public function uploadSolrConfiguration($clusterId, $realpathToConfigZip){
         $data = array();
 
-        $URL =  self::$apiBase . "solr_clusters/" . $clusterId . "/config/" . basename($realpathToConfigZip);
+        $fileName = basename($realpathToConfigZip);
+        $URL =  self::$apiBase . "solr_clusters/" . $clusterId . "/config/" . $fileName;
 
-        $zipFile = new \CURLFile($realpathToConfigZip, 'application/zip', '@');
+        $zipFile = new \CURLFile($fileName, 'application/zip', '@');
 
         $post = array();
         $post['@'] = $zipFile;
@@ -181,7 +182,7 @@ class RetrieveAndRank
         curl_setopt($ch, CURLOPT_HTTPAUTH, CURLAUTH_ANY);
         curl_setopt($ch, CURLOPT_USERPWD, self::$username . ":" . self::$password);
         curl_setopt($ch, CURLOPT_POSTFIELDS, $post);
-        $headers = array('Accept: application/json','Content-Type: multipart/form-data');
+        $headers = array('Accept: application/json','Content-Type: application/zip');
         curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
         $resp = curl_exec($ch);
         $results = json_decode($resp);
@@ -197,6 +198,9 @@ class RetrieveAndRank
             $data['errorCode'] = $info['code'];
             $data['success'] = false;
             $data['httpStatus'] = $httpStatus; 
+            $data['fileName'] = $fileName;
+            $data['url'] = $URL;
+            
                         
             return $data;
         }
@@ -331,6 +335,10 @@ class RetrieveAndRank
         curl_setopt($ch, CURLOPT_POSTFIELDS, $data_strings);
         $resp = curl_exec($ch);
         $results = json_decode($resp);
+
+        $info = curl_getinfo($ch);
+        $httpStatus = curl_getinfo($ch, CURLINFO_HTTP_CODE);
+
         curl_close ($ch);
 
         if($httpStatus != 200){         
@@ -338,12 +346,13 @@ class RetrieveAndRank
             $data['errorCode'] = $info['code'];
             $data['success'] = false;
             $data['httpStatus'] = $httpStatus; 
+            $data['url'] = $URL;
                         
             return $data;
         }
                 
 
-
+        $data['url'] = $URL;
         $data['success'] = true;
         $data['message'] = "Success. Search and rank.";
         $data['results'] = $results;
@@ -427,6 +436,10 @@ class RetrieveAndRank
         curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
         $resp = curl_exec($ch);
         $results = json_decode($resp);
+
+        $info = curl_getinfo($ch);
+        $httpStatus = curl_getinfo($ch, CURLINFO_HTTP_CODE);
+
         curl_close ($ch);
 
         if($httpStatus != 200){         
@@ -471,6 +484,10 @@ class RetrieveAndRank
         curl_setopt($ch, CURLOPT_POSTFIELDS, $data_strings);
         $resp = curl_exec($ch);
         $results = json_decode($resp);
+
+        $info = curl_getinfo($ch);
+        $httpStatus = curl_getinfo($ch, CURLINFO_HTTP_CODE);
+
         curl_close ($ch);
 
         if($httpStatus != 200){         
@@ -504,6 +521,10 @@ class RetrieveAndRank
         curl_setopt($ch, CURLOPT_HTTPHEADER, array('Content-Type: application/json'));
         $resp = curl_exec($ch);
         $results = json_decode($resp);
+
+        $info = curl_getinfo($ch);
+        $httpStatus = curl_getinfo($ch, CURLINFO_HTTP_CODE);
+
         curl_close ($ch);
 
         if($httpStatus != 200){         
@@ -534,6 +555,10 @@ class RetrieveAndRank
         curl_setopt($ch, CURLOPT_HTTPHEADER, array('Content-Type: application/zip'));
         $resp = curl_exec($ch);
         $results = json_decode($resp);
+
+        $info = curl_getinfo($ch);
+        $httpStatus = curl_getinfo($ch, CURLINFO_HTTP_CODE);
+
         curl_close ($ch);
 
         if($httpStatus != 200){         
@@ -564,6 +589,11 @@ class RetrieveAndRank
         curl_setopt($ch, CURLOPT_HTTPHEADER, array('Content-Type: application/json'));
         $resp = curl_exec($ch);
         $results = json_decode($resp);
+
+
+        $info = curl_getinfo($ch);
+        $httpStatus = curl_getinfo($ch, CURLINFO_HTTP_CODE);
+
         curl_close ($ch);
         
         if($httpStatus != 200){         
