@@ -3,7 +3,8 @@
 	 * What's this vendor/autoload.php? This is used with composer.
 	 * You need to run `composer install`
 	*/
-	// require_once "../../vendor/autoload.php";
+	require_once "../../vendor/autoload.php";
+	// require_once "../../src/RetrieveAndRank.php";
 
 	$retrieveAndRankObj = new \Kweaver\Watson\RetrieveAndRank();
 
