@@ -17,6 +17,8 @@ composer require kweaver00/watson_php dev-master
 
 [Natural Language Classifier](https://github.com/kweaver00/unofficial-ibm-watson-php-sdk#natural-language-classifier)
 
+[Retrieve and Rank](https://github.com/kweaver00/unofficial-ibm-watson-php-sdk#retrieve-and-rank)
+
 [Document Conversion](https://github.com/kweaver00/unofficial-ibm-watson-php-sdk#document-conversion)
 
 
@@ -58,6 +60,11 @@ $localFilePathForTrainingData = realpath("./weather_data_train.csv");
 //Creating a new classifier
 $response = $naturalLangObj->create($localFilePathForTrainingData,$localFilePathForTrainingMetaDataJSON);
 ```
+
+
+
+## Retrieve and Rank
+
 
 
 
