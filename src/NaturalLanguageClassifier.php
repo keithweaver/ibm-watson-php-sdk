@@ -113,6 +113,7 @@ class NaturalLanguageClassifier
 
         $info = curl_getinfo($ch);
         $httpStatus = curl_getinfo($ch, CURLINFO_HTTP_CODE);
+        curl_close ($ch);
         
         //If invalid response
         if($httpStatus != 200){
@@ -161,6 +162,8 @@ class NaturalLanguageClassifier
         $info = curl_getinfo($ch);
         $httpStatus = curl_getinfo($ch, CURLINFO_HTTP_CODE);
 
+        curl_close ($ch);
+
         //If invalid response
         if($httpStatus != 200){
             
@@ -206,6 +209,9 @@ class NaturalLanguageClassifier
 
         $info = curl_getinfo($ch);
         $httpStatus = curl_getinfo($ch, CURLINFO_HTTP_CODE);
+
+        curl_close ($ch);
+
         if($httpStatus != 200){
             
             $data['message'] = $info['description'];
@@ -253,6 +259,9 @@ class NaturalLanguageClassifier
 
         $info = curl_getinfo($ch);
         $httpStatus = curl_getinfo($ch, CURLINFO_HTTP_CODE);
+
+        curl_close ($ch);
+
         if($httpStatus != 200){
             
             $data['message'] = $info['description'];
@@ -298,6 +307,9 @@ class NaturalLanguageClassifier
 
         $info = curl_getinfo($ch);
         $httpStatus = curl_getinfo($ch, CURLINFO_HTTP_CODE);
+
+        curl_close ($ch);
+        
         if($httpStatus != 200){
             
             $data['message'] = $info['description'];

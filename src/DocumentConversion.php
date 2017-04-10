@@ -97,9 +97,10 @@ class DocumentConversion
         }
 
         $URL =  self::$apiBase . "convert_document?version=2015-12-15";
-            
-        $data['pdf'] = $filePathToPDF;
-        $data['config'] = $filePathToConfigurationFile;
+        
+        //Uncomment the line below if you want to verify your file path 
+        // $data['pdf'] = $filePathToPDF;
+        // $data['config'] = $filePathToConfigurationFile;
 
         //Used for PHP 5.5 and above
         $pdfFile = new \CURLFile($filePathToPDF, 'application/pdf', 'file');
@@ -126,6 +127,9 @@ class DocumentConversion
 
         $info = curl_getinfo($ch);
         $httpStatus = curl_getinfo($ch, CURLINFO_HTTP_CODE);
+
+        curl_close ($ch);
+
         if($httpStatus != 200){
             
             $data['message'] = $info['description'];
